@@ -14,6 +14,9 @@ pipeline{
                     }
                 }
                 stage('2-subjobs'){
+                    when {
+                        branch 'future'
+                    }
                     steps {
                         sh 'df -h'
                     }
