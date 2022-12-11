@@ -1,7 +1,7 @@
 pipeline{
    agent {
     label {
-      label 'slave1'
+      label 'Slave1'
     }
   }
     stages{
@@ -30,7 +30,7 @@ pipeline{
         }
         stage('3-codeTest'){
             agent {
-                label 'slave1'
+                label 'Slave1'
             }
                     steps {
                         sh 'free -m'
@@ -39,7 +39,7 @@ pipeline{
                 stage('4-closing'){
                    agent {
                      label {
-                         label 'slave2'
+                         label 'Slave2'
                       }
                      }
                     steps {
