@@ -1,10 +1,11 @@
 pipeline{
-    agent any
+   agent {
+    label {
+      label 'slave1'
+    }
+  }
     stages{
         stage('1-clone'){
-            agent {
-                label 'slave1'
-            }
             steps {
                 sh 'cat /etc/passwd'
             }
@@ -34,8 +35,10 @@ pipeline{
                 }
                 stage('4-closing'){
                    agent {
-                    label 'slave2'
-                    }
+                     label {
+                         label 'slave2'
+                      }
+                     }
                     steps {
                         echo "We are done"
                     }
