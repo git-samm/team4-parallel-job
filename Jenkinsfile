@@ -11,7 +11,7 @@ pipeline{
             }
         }
         stage('2-parallel-jobs'){
-            parallel{
+            parallel {
                 stage('1-subjob1'){
                     steps {
                         sh 'lscpu'
@@ -29,6 +29,9 @@ pipeline{
             }
         }
         stage('3-codeTest'){
+            agent {
+                label 'slave1'
+            }
                     steps {
                         sh 'free -m'
                     }
