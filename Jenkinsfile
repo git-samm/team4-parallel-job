@@ -33,7 +33,7 @@ pipeline{
                     }
                 }
                 stage('4-closing'){
-                   agent{
+                   agent {
                     label 'slave2'
                     }
                     steps {
