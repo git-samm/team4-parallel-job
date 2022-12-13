@@ -1,7 +1,12 @@
 pipeline{
-    agent any
+    agent{
+        label 'slave1'
+    }
     stages{
         stage('1-clone'){
+            agent{
+                label 'slave2'
+            }
             steps {
                 sh 'cat /etc/passwd'
             }
@@ -25,14 +30,17 @@ pipeline{
             }
         }
         stage('3-codeTest'){
+            agent{
+                label 'slave1'
+            }
                     steps {
                         sh 'free -m'
                     }
                 }
                 stage('4-closing'){
-                    when {
-                        branch 'future'
-                    }
+                   agent{
+                    label 'slave2'
+                   }
                     steps {
                         echo "We are done"
                     }
