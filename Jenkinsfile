@@ -1,9 +1,7 @@
 pipeline{
    agent {
-    label {
       label 'slave1'
     }
-  }
     stages{
         stage('1-clone'){
             steps {
